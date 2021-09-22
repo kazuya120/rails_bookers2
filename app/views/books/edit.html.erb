@@ -12,10 +12,11 @@
      <p id="notice">
        <%= flash[:notice] %>
      </p>
+     <% if @book.errors.any? %>
+        <%= @book.errors.count %>件のerror
+        <% @book.errors.full_messages.each do |message| %>
+        <%= message %>
+      <% end %>
    <% end %>
- <% if @book.errors.any? %>
- <%= @book.errors.count %>件のerror
- <% @book.errors.full_messages.each do |message| %>
- <%= message %>
- <% end %>
- <% end %>
+ 
+ 

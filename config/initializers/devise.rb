@@ -14,7 +14,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '25c423507a65c7551240203cfeb06d9a90a18c5ededd5366561fb3a4b1e6b3b83247b7aad15a0b81a58495c7044bb0620a2fc0ba71a83276d06f87f29cbb7c03'
+  # config.secret_key = 'a61549f777b1111162e0ab466a1e1e901b85476e884fb74fdfac1c63725dd0a867f2f27a5aad2a5a849997d6cf76b0f1e77a7420921f291e6fa7325cd178c3b2'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -36,7 +36,7 @@ Devise.setup do |config|
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
-   require 'devise/orm/active_record'
+  require 'devise/orm/active_record'
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
@@ -46,7 +46,7 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-   config.authentication_keys = [:name]
+  # config.authentication_keys = [:email]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
@@ -58,12 +58,12 @@ Devise.setup do |config|
   # Configure which authentication keys should be case-insensitive.
   # These keys will be downcased upon creating or modifying a user and when used
   # to authenticate or find a user. Default is :email.
-   config.case_insensitive_keys = [:email]
+  config.case_insensitive_keys = [:email]
 
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
   # modifying a user and when used to authenticate or find a user. Default is :email.
-   config.strip_whitespace_keys = [:email]
+  config.strip_whitespace_keys = [:email]
 
   # Tell if authentication through request.params is enabled. True by default.
   # It can be set to an array that will enable params authentication only for the
@@ -126,7 +126,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'a1175f5cb273cd1ad9beb67d833e3d7b0b5f03ee515c1f715a0bf2825235d24aaf30622710e4d3c1c5cbac595c5cb5737b936adb5a87671c49c0d68871502ac4'
+  # config.pepper = '6db78b8865fccd89dbb0dbdd837aa712cebd3e6c3ef6cb0d8b7d1501b659799314614c147d5b9a422dffbcfdd94c7f8807ee555048f04a84d31bdc5c72864525'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
