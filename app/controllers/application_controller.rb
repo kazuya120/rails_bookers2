@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   
   def after_sign_in_path_for(resorce)
-    user_path
+    @user_path
   end
   
   
@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:email])
   end
   
-
+  
 
    private
     def configure_permitted_parameters

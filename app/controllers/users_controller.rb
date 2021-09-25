@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    
   end
 
   def edit
@@ -13,13 +14,17 @@ class UsersController < ApplicationController
   end
   
   def create
-    @user = User.new(user_params)
+     
+     @book.user_id = current_user.id
+     @user = User.new(user_params)
     if @user.save
+       
      redirect_to book_path(@book.id)
      flash[:notice] = "User was successfully created."
     else
       @users = User.all
       render 'index'
+      flash.now[:danger]
     end
   end
 

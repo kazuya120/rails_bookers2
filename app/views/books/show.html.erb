@@ -1,29 +1,38 @@
-<h2>New book</h2>
-<%= form_with model:@book,local:true do |f| %>
- <h4>Title</h4>
- <%= f.text_field :title %>
- <h4>Opinion</h4>
- <%= f.text_area :body %>
- <%= f.submit 'Create Book' %>
+
+
+
+
+<%= render 'users/list', users: @users %>
+
+<%= render 'books/list', books: @books %>
+
+
+
+
+
+
+<main>
+ <p id="notice"><%= notice %></p>
+<div class="col-md8 offset-md-1">
+ <h2>Book detail</h2>
+ <table class="table">
+  <tbody>
+   <tr>
+    <td><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %></td>
+    <td><%= link_to @book.title, book_path(@book.id) %></td>
+    <td><%= @book.body %></td>
+    <td><%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-success" %></td>
+    <td><%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %></td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+
+
 <% end %>
-
-
-<h3>Book detail</h3>
-<%= link_to @book.title, book_path(@book.id) %>
-<%= @book.body %>
-
- <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
- <%= link_to "Edit", edit_book_path(@book.id) %>
- 
   <% if flash[:notice] %>
  <p id="notice">
      <%= flash[:notice] %>
-</p>
-<% end %>     
-      
-      
-      
-      
-      
-      
-      
+ </p>
+ <% end %>
+ </main>

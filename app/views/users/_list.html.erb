@@ -1,0 +1,39 @@
+
+<main>
+    <p id="notice"><%= notice %></p>
+  <div class="container px-5 px-sm-0">
+    <div class="row">
+      <div class="col-md-3">
+<h2>User info</h2>
+
+<%= form_with model: @user, local:true do |f| %>
+
+　  <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %>
+<div class="container">
+　<div class="row">
+　  <tabel class="tabel">
+　    <tbody>
+　        <tr>
+　            <th>name</th>
+　            <th><%= user(@user.id).name %></th>
+　        </tr>
+　        <tr>
+　            <th>introduction</th>
+　            <th><%= @user.introduction %></th>
+　        </tr>
+　    </tbody>
+　   </tabel>
+　   </div>
+　   </div>
+
+　  <div class="row">
+　    
+　      <% if @user.id == current_user.id %>
+         <%= link_to "", edit_user_path(@user), class:"btn btn-outline-secondary btn-block fas fa-user-cog" %>
+        <% end %>
+        
+     </div>      
+　   </div>
+　   </div>
+        
+    <% end %>
